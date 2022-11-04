@@ -27,16 +27,16 @@ else if (choice == 2) possible_symbols = Alphabet;
 else if (choice == 3) possible_symbols = Digits+ Alphabet;
 else if (choice == 4) possible_symbols = Digits + Alphabet+Symbols;
 
-IEnumerable<string> q = possible_symbols.Select(x => x.ToString()); 
+IEnumerable<string> q = possible_symbols.Select(x => x.ToString());
 
 for (int i = password_length_[0]; i <= password_length_[1]; i++)
 {
     int size = i;
     for (int j = 0; j < size - 1; j++)
     {
-         q =q.SelectMany(x => possible_symbols, (x, y) => x + y);
+        q = q.SelectMany(x => possible_symbols, (x, y) => x + y);
     }
-    foreach(string item in q)
+    foreach (string item in q)
     {
         Console.WriteLine("Пробуем пароль: " + item);
         var md5 = MD5.Create();
@@ -49,7 +49,11 @@ for (int i = password_length_[0]; i <= password_length_[1]; i++)
         }
         else Console.WriteLine("Пароль не подошел\n");
     }
-q = possible_symbols.Select(x => x.ToString());
-    
+    q = possible_symbols.Select(x => x.ToString());
+
 }
+
+
+
+
 
